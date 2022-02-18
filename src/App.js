@@ -1,5 +1,6 @@
 import './App.css';
 import FoldersLst from './components/FoldersLst.jsx';
+import TodoLst from './components/TodoLst.jsx'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,9 +13,11 @@ function App() {
     <div className="col-md-3">
       <Router>      
         <Switch>
-          <Route exact path="/">
-            <FoldersLst />
-          </Route>
+
+          <Route exact path="/" component={FoldersLst}/>
+
+          <Route path="/folders/:id" component={TodoLst}/>
+
         </Switch>
       </Router>
     </div>

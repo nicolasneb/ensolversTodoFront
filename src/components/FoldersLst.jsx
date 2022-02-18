@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import FolderService from "../services/folder.service";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class FoldersLst extends Component {
 
@@ -91,7 +97,7 @@ class FoldersLst extends Component {
                         {/* <input type="checkbox" class="form-check-input" id="exampleCheck1"/> */}
                         <div class="row g-3 align-items-center">
                             {
-                               this.state.folders.map(folder => {
+                            this.state.folders.map(folder => {
                                     console.log("folders:", folder)
                                     return(
                                         <div>                                        
@@ -99,7 +105,9 @@ class FoldersLst extends Component {
                                                 <label for="inputPassword6" class="col-form-label">- {folder.name}</label>
                                             </div>
                                             <div class="col-auto">
-                                                <label for="inputPassword6" class="col-form-label">View Items</label>
+                                                <label for="inputPassword6" class="col-form-label">
+                                                    <Link to={"/folders/"+folder.id}>View Items</Link>
+                                                </label>
                                             </div>
                                             <div class="col-auto">
                                                 <label for="inputPassword6" onClick={() => this.handleDeleteFolder(folder.id)} class="col-form-label">Remove</label>
